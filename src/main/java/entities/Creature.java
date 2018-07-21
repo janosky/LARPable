@@ -31,7 +31,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Creature.findAll", query = "SELECT c FROM Creature c")
       ,
-    @NamedQuery(name = "Creature.findAllCreatureTypes", query = "SELECT distinct(c.creatureType) FROM Creature c")
+     @NamedQuery(name = "Creature.findAllCreatureNames", query = "SELECT distinct(c.creatureName) FROM Creature c")
+    ,@NamedQuery(name = "Creature.findAllCreatureTypes", query = "SELECT distinct(c.creatureType) FROM Creature c")
     , @NamedQuery(name = "Creature.findByCreatureId", query = "SELECT c FROM Creature c WHERE c.creatureId = :creatureId")
     , @NamedQuery(name = "Creature.findByCreatureName", query = "SELECT c FROM Creature c WHERE c.creatureName = :creatureName")
     , @NamedQuery(name = "Creature.findByCreatureType", query = "SELECT c FROM Creature c WHERE c.creatureType = :creatureType")

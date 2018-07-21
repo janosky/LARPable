@@ -3,6 +3,7 @@ entities\Scenario.class
 wrappers\CreatureType.class
 entities\Creature_.class
 RestClasses\ApplicationConfig.class
+wrappers\CreatureName.class
 entities\Scenario_.class
 RestClasses\GetCreatureData.class
 RestClasses\exceptions\IllegalOrphanException.class

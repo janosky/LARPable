@@ -21,6 +21,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MediaType.*;
+import jdk.nashorn.internal.objects.NativeArray;
+import wrappers.CreatureName;
 import wrappers.CreatureType;
 
 /**
@@ -36,12 +38,24 @@ public class GetCreatureData implements  GetCreatureDataInterface {
     
     
     @GET
-    @Path("test")
+    @Path("getCreatureNames")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<String> test()
+    public List<CreatureName> getCreatureNames()
     {
-        return em.createNamedQuery("Creature.findAllCreatureTypes",String.class).getResultList();
+      List<String> creatureNames = em.createNamedQuery("Creature.findAllCreatureNames",String.class).getResultList();
+      List<CreatureName> names= new LinkedList<>();
+      CreatureName name;
+      
+      for(String nam : creatureNames)
+      {
+          names.add(new CreatureName(nam));
+      }
+        
+      return names;
     }
+    
+    
+    
     @Override
     @GET    
     @Path("getCretureTypes")
@@ -71,6 +85,7 @@ public class GetCreatureData implements  GetCreatureDataInterface {
 
     }
 
+   
     @Override
     @GET
     @Path("getCreatureByType/{type}")
