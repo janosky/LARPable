@@ -9,6 +9,7 @@ import Interfaces.GetCreatureDataInterface;
 import entities.Archtypes;
 import entities.Creature;
 import java.util.ArrayList;
+import java.util.Collection;
 import static java.util.Collections.list;
 import java.util.LinkedList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class GetCreatureData implements  GetCreatureDataInterface {
     
     @Override
     @GET    
-    @Path("getCretureTypes")
+    @Path("getCreatureTypes")
     // @Produces({ MediaType.APPLICATION_JSON })
     
     @Produces(MediaType.APPLICATION_JSON)
@@ -97,16 +98,32 @@ public class GetCreatureData implements  GetCreatureDataInterface {
 //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+        @GET
+    @Path("getCreatureByName/{name}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Creature> getCreatureByName(@PathParam("name") String creatureName) {
+      
+        return em.createNamedQuery("Creature.findByCreatureName", Creature.class).
+                setParameter("creatureName", creatureName ).getResultList();
+//  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     @GET
     @Path("GetArchtypeByCreatureID/{creatureID}")
     
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Archtypes> getArchtypesByCreatureID(@PathParam("creatureID") String creatureID) {
+    public Collection<Archtypes> getArchtypesByCreatureID(@PathParam("creatureID") String creatureID) {
        
-return em.createNamedQuery("Archtypes.findByArchytypeCreatureID", Archtypes.class).
-        setParameter("creatureID", creatureID).getResultList();
+       Creature creature = em.createNamedQuery("Creature.findByCreatureId", Creature.class).setParameter("creatureId", creatureID).getSingleResult();
+       
+       
+     
+   // em.createNamedQuery("Creature.findByCreatureId", Creature.class).setParameter("creatureID", ).getResultList();
 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+Collection<Archtypes> archtypes = creature.getArchtypesCollection();
+return  archtypes;
     }
     
 }

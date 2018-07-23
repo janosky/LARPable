@@ -13,23 +13,23 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class CreatureName {
-    String CreatreNameString = "";
+    String CreatureName = "";
 
     public CreatureName() {
     }
 
     public CreatureName(String nam) {
         
-        this.CreatreNameString = nam;
+        this.CreatureName = nam;
       //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getCreatreNameString() {
-        return CreatreNameString;
+    public String getCreatureName() {
+        return CreatureName;
     }
 
-    public void setCreatreNameString(String CreatreNameString) {
-        this.CreatreNameString = CreatreNameString;
+    public void setCreatureName(String CreatureName) {
+        this.CreatureName = CreatureName;
     }
     
 }

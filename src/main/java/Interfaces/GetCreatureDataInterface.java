@@ -8,6 +8,7 @@ package Interfaces;
 import entities.Archtypes;
 import entities.Creature;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import wrappers.CreatureType;
 
@@ -22,5 +23,5 @@ public interface GetCreatureDataInterface extends Serializable{
     
     public List<Creature> getCreatureByType(String CreatureType);
     
-    public List <Archtypes> getArchtypesByCreatureID(String creatureID);
+    public Collection <Archtypes> getArchtypesByCreatureID(String creatureID);
 }
