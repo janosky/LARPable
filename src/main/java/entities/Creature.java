@@ -6,15 +6,20 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -33,6 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
       
      @NamedQuery(name = "Creature.findAllCreatureNames", query = "SELECT distinct(c.creatureName) FROM Creature c")
     ,@NamedQuery(name = "Creature.findAllCreatureTypes", query = "SELECT distinct(c.creatureType) FROM Creature c")
+        ,@NamedQuery(name = "Creature.findAllCreatureIDs", query = "SELECT distinct(c.creatureId) FROM Creature c")
     , @NamedQuery(name = "Creature.findByCreatureId", query = "SELECT c FROM Creature c WHERE c.creatureId = :creatureId")
     , @NamedQuery(name = "Creature.findByCreatureName", query = "SELECT c FROM Creature c WHERE c.creatureName = :creatureName")
     , @NamedQuery(name = "Creature.findByCreatureType", query = "SELECT c FROM Creature c WHERE c.creatureType = :creatureType")
@@ -91,11 +97,11 @@ public class Creature implements Serializable {
     public Creature() {
     }
 
+
     public Creature(String creatureId) {
         this.creatureId = creatureId;
     }
-
-    public Creature(String creatureId, String creatureName, String creatureType) {
+    public Creature( String creatureId, String creatureName, String creatureType) {
         this.creatureId = creatureId;
         this.creatureName = creatureName;
         this.creatureType = creatureType;
@@ -105,6 +111,21 @@ public class Creature implements Serializable {
         return creatureId;
     }
 
+//      private String getNextID()
+//      {
+//           List<String> list = em.createNamedQuery("Creature.findAllCreatureIDs", String.class).getResultList();
+//           
+//           ArrayList<Integer> intList = new ArrayList<>();
+//                   
+//          
+//           while(!list.isEmpty())
+//           {
+//               intList.add(Integer.parseInt( list.remove(0).substring(1)));
+//           }
+//           
+//           
+//           return ("C"+Collections.max(intList)+1);
+//      }
     public void setCreatureId(String creatureId) {
         this.creatureId = creatureId;
     }

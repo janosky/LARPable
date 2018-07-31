@@ -5,7 +5,12 @@
  */
 package RestClasses;
 
+import com.sun.corba.se.impl.interceptors.InterceptorList;
 import entities.Creature;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,7 +30,7 @@ import javax.ws.rs.core.MediaType;
  * @author aejan
  */
 @Stateless
-@Path("entities/creature")
+@Path("creature")
 public class CreatureFacadeREST extends AbstractFacade<Creature> {
 
     @PersistenceContext(unitName = "LARPPU")
@@ -39,9 +44,32 @@ public class CreatureFacadeREST extends AbstractFacade<Creature> {
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(Creature entity) {
+        
+      entity.setCreatureId(getNextID());
+       
+          
+        
+     
+        
         super.create(entity);
     }
-
+      private String getNextID()
+      {
+           List<String> list = em.createNamedQuery("Creature.findAllCreatureIDs", String.class).getResultList();
+           
+           ArrayList<Integer> intList = new ArrayList<>();
+                   
+          
+           while(!list.isEmpty())
+           {
+               intList.add(Integer.parseInt( list.remove(0).substring(1)));
+           }
+           
+           int maxInt=  Collections.max(intList)+1;
+           return  "C"+maxInt;
+      }
+      
+      
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})

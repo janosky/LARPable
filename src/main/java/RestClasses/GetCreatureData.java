@@ -126,4 +126,12 @@ Collection<Archtypes> archtypes = creature.getArchtypesCollection();
 return  archtypes;
     }
     
+    
+    @GET
+    @Path("GetNextCreatureID")
+    public int getnextCreatureID()
+    {
+        
+        return 0;
+    }
 }

@@ -34,6 +34,7 @@ public class ApplicationConfig extends Application {
         resources.add(RestClasses.CreatureFacadeREST.class);
         resources.add(RestClasses.GetCreatureData.class);
       //  resources.add(RestClasses.ScenarioFacadeREST.class);
+        resources.add(servlets.NewCrossOriginResourceSharingFilter.class);
     }
     
 }
