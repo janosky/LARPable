@@ -5,12 +5,9 @@
  */
 package RestClasses;
 
-import com.sun.corba.se.impl.interceptors.InterceptorList;
 import entities.Creature;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -36,7 +33,7 @@ public class CreatureFacadeREST extends AbstractFacade<Creature> {
     @PersistenceContext(unitName = "LARPPU")
     private EntityManager em;
 
-    public CreatureFacadeREST() {
+       public CreatureFacadeREST() {
         super(Creature.class);
     }
 
@@ -68,8 +65,7 @@ public class CreatureFacadeREST extends AbstractFacade<Creature> {
            int maxInt=  Collections.max(intList)+1;
            return  "C"+maxInt;
       }
-      
-      
+
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -115,5 +111,6 @@ public class CreatureFacadeREST extends AbstractFacade<Creature> {
     protected EntityManager getEntityManager() {
         return em;
     }
+    
     
 }

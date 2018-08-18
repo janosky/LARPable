@@ -8,8 +8,10 @@ package RestClasses;
 import Interfaces.GetCreatureDataInterface;
 import entities.Archtypes;
 import entities.Creature;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import static java.util.Collections.list;
 import java.util.LinkedList;
 import java.util.List;
@@ -133,5 +135,30 @@ return  archtypes;
     {
         
         return 0;
+    }
+    
+    @GET
+    @Path("getNextID")
+    public String getNextID() 
+          
+    {
+        {
+           List<String> list = em.createNamedQuery("Scenario.findNextScenarioID", String.class).getResultList();
+           
+           ArrayList<Integer> intList = new ArrayList<>();
+                   
+         
+           while(!list.isEmpty())
+           {
+               intList.add(Integer.parseInt( list.remove(0).substring(1)));             
+          }
+           if(!intList.isEmpty())
+           {
+                  int maxInt=  Collections.max(intList)+1;
+           return  "S"+maxInt;
+           }
+           else
+               return "S0001";
+      }
     }
 }

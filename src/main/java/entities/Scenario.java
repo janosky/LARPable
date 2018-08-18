@@ -31,6 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Scenario.findAll", query = "SELECT s FROM Scenario s")
     , @NamedQuery(name = "Scenario.findByScenarioId", query = "SELECT s FROM Scenario s WHERE s.scenarioId = :scenarioId")
+         , @NamedQuery(name = "Scenario.findNextScenarioID", query = "SELECT DISTINCT(s.scenarioId) FROM Scenario s")
     , @NamedQuery(name = "Scenario.findByScenarioNotes", query = "SELECT s FROM Scenario s WHERE s.scenarioNotes = :scenarioNotes")
     , @NamedQuery(name = "Scenario.findByScenarioCreated", query = "SELECT s FROM Scenario s WHERE s.scenarioCreated = :scenarioCreated")
     , @NamedQuery(name = "Scenario.findByScenarioCreatedBy", query = "SELECT s FROM Scenario s WHERE s.scenarioCreatedBy = :scenarioCreatedBy")})
@@ -137,5 +138,7 @@ public class Scenario implements Serializable {
     public String toString() {
         return "entities.Scenario[ scenarioId=" + scenarioId + " ]";
     }
+    
+    
     
 }

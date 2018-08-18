@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  * @author aejan
  */
 @Stateless
-@Path("entities/archtypes")
+@Path("entities.archtypes")
 public class ArchtypesFacadeREST extends AbstractFacade<Archtypes> {
 
     @PersistenceContext(unitName = "LARPPU")

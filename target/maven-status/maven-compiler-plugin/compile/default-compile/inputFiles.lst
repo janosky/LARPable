@@ -1,7 +1,9 @@
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\entities\Archtypes.java
+C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\ScenarioDetailsFacadeREST.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\entities\Scenario.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\wrappers\CreatureType.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\AbstractFacade.java
+C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\ScenarioFacadeREST.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\ArchtypesFacadeREST.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\entities\ScenarioDetails.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\ApplicationConfig.java
@@ -9,7 +11,9 @@ C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\wrappers\C
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\Interfaces\GetCreatureDataInterface.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\exceptions\NonexistentEntityException.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\exceptions\PreexistingEntityException.java
+C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\servlets\NewCrossOriginResourceSharingFilter.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\exceptions\IllegalOrphanException.java
+C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\CrossDomain.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\entities\Creature.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\CreatureFacadeREST.java
 C:\Users\aejan\OneDrive\Documents\NetBeansProjects\LARP\src\main\java\RestClasses\GetCreatureData.java
